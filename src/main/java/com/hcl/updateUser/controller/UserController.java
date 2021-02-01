@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hcl.updateuser.model.User;
 import com.hcl.updateuser.service.UserService;
 
-
-
 @Controller
 public class UserController {
 	
@@ -43,6 +41,8 @@ public class UserController {
 				logger.info("optional user" + user.get());
 				model.addAttribute("user", user.get());
 				return "userdetail";
+			} else {
+				model.addAttribute("error", "The Id Entered Does Not Exist");
 			}
 			
 		} catch (Exception e) {
